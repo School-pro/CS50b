@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for styling -->
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div id="auth-buttons">
+            <!-- Buttons to navigate to login and registration pages -->
+            <button onclick="window.location.href='login.html'">Login</button>
+            <button onclick="window.location.href='register.html'">Register</button>
+        </div>
+        <div id="logout-button">
+            <!-- Button to logout -->
+            <button onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList">
+            <!-- Tasks will be dynamically added here -->
+            <!-- Each task will have an edit and delete button -->
+            <!-- Format: <li><span>Task</span> <button onclick="editTask(this)">Edit</button> <button onclick="deleteTask(this)">Delete</button></li> -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to external JavaScript file for functionality -->
+</body>
+</html>
