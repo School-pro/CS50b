@@ -52,15 +52,16 @@ h1 {
   flex-grow: 1;
 }
 
-.button {
+button {
   padding: 8px 24px; /* p-2 px-6 */
   background-color: #bbcbe3; /* bg-blue-500 */
   color: white;
+  border: 1px solid transparent !important;
   border-radius: 0.475rem;
   font-weight: 600; /* font-semibold */
 }
 
-.button:hover {
+button:hover {
   background-color: #1e40af; /* hover:bg-blue-700 */
 }
 
