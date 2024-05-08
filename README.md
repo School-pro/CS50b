@@ -32,3 +32,11 @@ To use the project, execute the following commands:
 5. Node.js
 6. Express
 7. MongoDB
+
+## Note:
+
+Currently, the app utilizes the MongoDB connection string that I've provided here. However, if you're accessing this or cloning it after one month from submission, please note that the connection string will be removed.
+
+To prevent any issues when running the app, ensure that you create a database named 'ToDoApp' and a collection named 'itemy'. Retrieve the connection string and replace the password placeholder with your own password. Additionally, remember to whitelist the API to permit access from all locations.
+
+If you're unsure about any of these steps, refer to the MongoDB documentation for further guidance.
