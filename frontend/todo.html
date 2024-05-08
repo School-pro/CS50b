@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-app</title>
+    <link rel="stylesheet" href="/scrol.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="relative bg-blue-50 flex items-center justify-center p-10 overflow-hidden">
+        <div class="w-[200px] h-[200px] bg-blue-500 rounded-2xl rotate-45 absolute top-0 sm:-left-20 -left-[120px]"></div>
+        <h1>
+            <span class="font-semibold text-3xl block text-center text-blue-800">Welcome</span>
+            <span class="text-center block text-2xl font-semibold text-blue-800">to our</span>
+            <span class="text-center block text-[2.5rem] font-bold">To-Do App</span>
+        </h1>
+
+    </header>
+    <main class="py-10 px-10 flex justify-center flex-col w-full">
+        <form id="create-form" action="/create-item" method="POST" class="bg-blue-50 w-full md:w-[70%] mx-auto flex gap-2 rounded item-center justify-between p-2">
+            <input  id="create-field" name="item" class="border-none rounded outline-blue-300 px-2 flex-grow" type="text" placeholder="Enter the item you want to add ">
+            <button class="p-2 px-6 bg-blue-500 text-white rounded font-semibold hover:bg-blue-700">Add Item</button>
+        </form>
+        <ul  id="item-list" class="w-full md:w-[70%] rounded my-6 mx-auto divide-y border border-gray-300">
+            <li class="flex items-center justify-between p-1 hover:bg-gray-50">
+                <span class="item-text ml-2">item 1</span>
+                <div>
+                    <button class="edit-me p-2 px-5 bg-green-700 hover:bg-green-900 rounded text-white">Edit</button>
+                    <button class="delete-me p-2 px-5 bg-red-700 hover:bg-red-900 rounded text-white">Delete</button>
+                </div>
+            </li>
+            <li class="flex items-center justify-between p-1 hover:bg-gray-50">
+                <span class="item-text ml-2">item 2</span>
+                <div>
+                    <button class="edit-me p-2 px-5 bg-green-700 hover:bg-green-900 rounded text-white">Edit</button>
+                    <button class="delete-me p-2 px-5 bg-red-700 hover:bg-red-900 rounded text-white">Delete</button>
+                </div>
+            </li>
+            <li class="flex items-center justify-between p-1 hover:bg-gray-50">
+                <span class="item-text ml-2">item 3</span>
+                <div>
+                    <button class="edit-me p-2 px-5 bg-green-700 hover:bg-green-900 rounded text-white">Edit</button>
+                    <button class="delete-me p-2 px-5 bg-red-700 hover:bg-red-900 rounded text-white">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>
