@@ -7,7 +7,7 @@ The team members are:
 1. Ubaidullah Muhammad Ahmad
 2. Oumaima Nakrimi
 3. Nouhan Doumbouya
-4. Moses
+4. Moses Sunday
 
 ## Installation
 
