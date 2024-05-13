@@ -10,7 +10,7 @@ The team members are:
 1. Ubaidullah Muhammad Ahmad
 2. Oumaima Nakrimi
 3. Nouhan Doumbouya
-4. Moses
+4. Moses Sunday
 
 ## Installation
 
@@ -44,3 +44,7 @@ Currently, the app utilizes the MongoDB connection string that I've provided her
 To prevent any issues when running the app, ensure that you create a database named 'ToDoApp' and a collection named 'itemy'. Retrieve the connection string and replace the password placeholder with your own password. Additionally, remember to whitelist the API to permit access from all locations.
 
 If you're unsure about any of these steps, refer to the MongoDB documentation for further guidance.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 296e659d2149ab96af8631c77f31a531831c3186
