@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 .anima
 node_modules
+=======
+backend/node_modules/
+>>>>>>> 9b3299cb12e1ef992908538484c3b15b96dac2e8
