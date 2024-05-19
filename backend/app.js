@@ -1,39 +1,38 @@
-<<<<<<< HEAD
-const express = require("express")
-const app = express()
-const dotenv = require('dotenv')
-dotenv.config()
-const {MongoClient, ObjectId} = require('mongodb')
-const sanitizeHTML = require('sanitize-html')
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
+const { MongoClient, ObjectId } = require("mongodb");
+const sanitizeHTML = require("sanitize-html");
 
 let db;
 // app.set('views', 'views')
 // app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 // function that will connect my mongodb and then trigger the sercer connection
 async function go() {
-    try {
-        let client = new MongoClient(process.env.CONNECTIONSTRING);
-        await client.connect();
-        db = client.db(); // specify the database name if needed
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port ${process.env.PORT}`);
-        });
-    } catch (err) {
-        console.error('Error connecting to MongoDB:', err);
-    }
+  try {
+    let client = new MongoClient(process.env.CONNECTIONSTRING);
+    await client.connect();
+    db = client.db(); // specify the database name if needed
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}`);
+    });
+  } catch (err) {
+    console.error("Error connecting to MongoDB:", err);
+  }
 }
 
-go()
+go();
 
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // this is the router to load the root of the page
-app.get('/', async function(req, res) {
-    let itemy = await db.collection('itemy').find().toArray()
-    res.send(`
+app.get("/", async function (req, res) {
+  let itemy = await db.collection("itemy").find().toArray();
+  res.send(`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -71,98 +70,26 @@ app.get('/', async function(req, res) {
 
     </html>
     `);
-})
-
-app.post('/create-item', async function(req, res) {
-   const info = await db.collection('itemy').insertOne({name: req.body.text})
-   res.json({_id: info.insertedId, name: req.body.text})
-})
-
-app.post('/update-item', async function(req, res) {
-    await db.collection('itemy').findOneAndUpdate({_id: new ObjectId(req.body.id)}, {$set: {name: req.body.text}})
-    res.send('Success')
-})
-
-app.post('/delete-item', async function(req, res) {
-    await db.collection('itemy').findOneAndDelete({_id: new ObjectId(req.body.id)})
-    res.send('Success')
-})
-=======
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const Task = require("../backend/model/Task"); // Import Task model if you have defined it
-
-const app = express();
-const port = 3000;
-
-// MongoDB connection URL
-const mongoURI = "mongodb://localhost:27017/taskManager";
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// Connect to MongoDB with Mongoose
-mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connected to MongoDB");
-    // Start server after successful connection
-    app.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-  });
-
-// Routes
-// Define your routes here...
-
-app.get("/", (req, res) => {
-  res.send("Welcome Task Manager");
-});
-// Example route to create a new task
-app.post("/tasks", async (req, res) => {
-  try {
-    const newTask = await Task.create(req.body); // Assuming req.body contains task data
-    res.status(201).json(newTask);
-  } catch (err) {
-    console.error("Error creating task:", err);
-    res.status(500).send("Error creating task");
-  }
 });
 
-// Route to update a task
-app.put("/tasks/:id", async (req, res) => {
-  try {
-    const taskId = req.params.id;
-    const updatedTask = await Task.findByIdAndUpdate(taskId, req.body, {
-      new: true,
-    });
-    if (!updatedTask) {
-      return res.status(404).send("Task not found");
-    }
-    res.json(updatedTask);
-  } catch (err) {
-    console.error("Error updating task:", err);
-    res.status(500).send("Error updating task");
-  }
+app.post("/create-item", async function (req, res) {
+  const info = await db.collection("itemy").insertOne({ name: req.body.text });
+  res.json({ _id: info.insertedId, name: req.body.text });
 });
 
-// Route to delete a task
-app.delete("/tasks/:id", async (req, res) => {
-  try {
-    const taskId = req.params.id;
-    const deletedTask = await Task.findByIdAndDelete(taskId);
-    if (!deletedTask) {
-      return res.status(404).send("Task not found");
-    }
-    res.json({ message: "Task deleted successfully" });
-  } catch (err) {
-    console.error("Error deleting task:", err);
-    res.status(500).send("Error deleting task");
-  }
+app.post("/update-item", async function (req, res) {
+  await db
+    .collection("itemy")
+    .findOneAndUpdate(
+      { _id: new ObjectId(req.body.id) },
+      { $set: { name: req.body.text } }
+    );
+  res.send("Success");
 });
->>>>>>> 43f0f2a87a28b1e1dead32cd5bf3cfda20d6a703
+
+app.post("/delete-item", async function (req, res) {
+  await db
+    .collection("itemy")
+    .findOneAndDelete({ _id: new ObjectId(req.body.id) });
+  res.send("Success");
+});
