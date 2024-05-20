@@ -40,6 +40,7 @@ app.get("/", async function (req, res) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To-Do-app</title>
         <link rel="stylesheet" href="/scrol.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
@@ -55,7 +56,7 @@ app.get("/", async function (req, res) {
         <main class="py-10 px-10 flex justify-center flex-col w-full">
             <form id="create-form" action="/create-item" method="POST" class="bg-blue-50 w-full md:w-[70%] mx-auto flex gap-2 rounded item-center justify-between p-2">
                 <input  id="create-field" name="item" class="border-none rounded outline-blue-300 px-2 flex-grow" type="text" autocomplete="off" placeholder="Enter the item you want to add ">
-                <button class="p-2 px-6 bg-blue-500 text-white rounded font-semibold hover:bg-blue-700">Add Item</button>
+                <button class="p-2 px-6 bg-blue-500 text-white rounded font-semibold hover:bg-blue-700"><i class="fa-solid fa-plus md:hidden"></i><span class="hidden md:block">Add Item</span></button>
             </form>
             <ul  id="item-list" class="w-full md:w-[70%] rounded my-6 mx-auto divide-y border border-gray-300"></ul>
         </main>
@@ -73,16 +74,18 @@ app.get("/", async function (req, res) {
 });
 
 app.post("/create-item", async function (req, res) {
-  const info = await db.collection("itemy").insertOne({ name: req.body.text });
-  res.json({ _id: info.insertedId, name: req.body.text });
+  let safeText = sanitizeHTML(req.body.text, {allowedTags: [], allowedAttributes: {}})
+  const info = await db.collection("itemy").insertOne({ name: safeText });
+  res.json({ _id: info.insertedId, name: safeText });
 });
 
 app.post("/update-item", async function (req, res) {
+  let safeText = sanitizeHTML(req.body.text, {allowedTags: [], allowedAttributes: {}})
   await db
     .collection("itemy")
     .findOneAndUpdate(
       { _id: new ObjectId(req.body.id) },
-      { $set: { name: req.body.text } }
+      { $set: { name: safeText } }
     );
   res.send("Success");
 });

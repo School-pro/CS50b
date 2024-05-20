@@ -28,8 +28,8 @@ function itemTemplate(item) {
     <li class="flex items-center justify-between p-1 hover:bg-gray-50">
     <span class="item-text ml-2">${item.name}</span>
     <div>
-        <button data-id="${item._id}" class="edit-me p-2 px-5 bg-green-700 hover:bg-green-900 rounded text-white">Edit</button>
-        <button data-id="${item._id}" class="delete-me p-2 px-5 bg-red-700 hover:bg-red-900 rounded text-white">Delete</button>
+        <button data-id="${item._id}" class="edit-me p-2 px-5 bg-green-700 hover:bg-green-900 rounded text-white"><i class="fa-solid fa-pen md:hidden"></i><span class="hidden md:block">Edit</span></button>
+        <button data-id="${item._id}" class="delete-me p-2 px-5 bg-red-700 hover:bg-red-900 rounded text-white"><i class="fa-solid fa-trash md:hidden"></i><span class="hidden md:block">Delete</span></button>
     </div>
 </li>
     `
