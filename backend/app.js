@@ -45,8 +45,8 @@ app.get("/", async function (req, res) {
     </head>
     <body>
         <header class="relative bg-blue-50 flex items-center justify-center p-10 overflow-hidden">
-            <div class="w-[200px] h-[200px] bg-blue-500 rounded-2xl rotate-45 absolute top-0 sm:-left-20 -left-[120px]"></div>
-            <h1 class="text-blue-800">
+            <div class="w-[200px] h-[200px] bg-blue-500 rounded-2xl rotate-45 absolute top-0 sm:-left-20 -left-[120px] z-1"></div>
+            <h1 class="text-blue-800 z-10">
                 <span class="font-semibold text-3xl block text-center">Welcome</span>
                 <span class="text-center block text-2xl font-semibold">to our</span>
                 <span class="text-center block text-[2.5rem] font-bold">To-Do App</span>
