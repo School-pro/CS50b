@@ -56,7 +56,7 @@ app.get("/", async function (req, res) {
         <main class="py-10 px-10 flex justify-center flex-col w-full">
             <form id="create-form" action="/create-item" method="POST" class="bg-blue-50 w-full md:w-[70%] mx-auto flex gap-2 rounded item-center justify-between p-2">
                 <input  id="create-field" name="item" class="border-none rounded outline-blue-300 px-2 flex-grow" type="text" autocomplete="off" placeholder="Enter the item you want to add ">
-                <button class="p-2 px-6 bg-blue-500 text-white rounded font-semibold hover:bg-blue-700"><i class="fa-solid fa-plus md:hidden"></i><span class="hidden md:block">Add Item</span></button>
+                <button class="p-2 px-3 md:px-6 bg-blue-500 text-white rounded font-semibold hover:bg-blue-700"><i class="fa-solid fa-plus md:hidden"></i><span class="hidden md:block">Add Item</span></button>
             </form>
             <ul  id="item-list" class="w-full md:w-[70%] rounded my-6 mx-auto divide-y border border-gray-300"></ul>
         </main>
