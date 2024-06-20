@@ -15,12 +15,13 @@ borderMe()
 
 form.addEventListener('submit', function(e) {
     e.preventDefault()
+    if(itemField.value) {
     axios.post('/create-item', {text: itemField.value}).then(function(response) {
         listItems.insertAdjacentHTML('beforeend', itemTemplate(response.data))
         itemField.value = ""
         itemField.focus()
     }).catch((err) => err)
-
+}
 })
 
 function itemTemplate(item) {
