@@ -1,27 +1,45 @@
 {
+<<<<<<< HEAD
   "name": "complexapp",
 
+=======
+  "name": "cs50b",
+>>>>>>> 01106e9ef73cd5d8a08a3baac94c700932eafc77
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
 
     "watch": "nodemon app",
 
+=======
+    "start": "node app.js",
+    "watch": "nodemon app",
+    "dev": "nodemon app.js",
+>>>>>>> 01106e9ef73cd5d8a08a3baac94c700932eafc77
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
 
+=======
+    "body-parser": "^1.20.2",
+>>>>>>> 01106e9ef73cd5d8a08a3baac94c700932eafc77
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mongodb": "^6.5.0",
+    "iconv-lite": "^0.6.3",
+    "mongodb": "^6.6.1",
+    "mongoose": "^8.3.4",
     "nodemon": "^3.1.0",
     "sanitize-html": "^2.13.0",
     "validator": "^13.11.0"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 01106e9ef73cd5d8a08a3baac94c700932eafc77
   }
 }
